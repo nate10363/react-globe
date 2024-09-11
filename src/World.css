@@ -1,0 +1,121 @@
+/* src/World.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  min-width: 300px; /* Set minimum width */
+  background-color: black;
+}
+
+.top-space {
+  flex-shrink: 1; /* Allow the top space to shrink first */
+  flex-grow: 0; /* Prevent it from growing */
+  height: auto; /* Ensure it can shrink */
+  min-height: 0; /* Allow it to shrink to 0 */
+}
+
+.bottom-space {
+  flex-shrink: 1; /* Allow the bottom space to shrink after the top space */
+  flex-grow: 0; /* Prevent it from growing */
+  height: 80px; /* Initial fixed space at the bottom */
+  min-height: 0; /* Allow it to shrink to 0 */
+}
+
+.globe-container {
+  width: 100%;
+  height: calc(
+    100vh - 80px
+  ); /* Take up the entire screen height minus the bottom space */
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Ensure it shrinks only when top and bottom spaces are 0 */
+}
+
+.tooltip {
+  background-color: white;
+  border: 2px solid #e60000; /* Red border */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  max-width: 800px;
+  bottom: 100px; /* Position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-country {
+  color: #e60000; /* Red text */
+  font-size: 2em;
+}
+
+.tooltip-sub-info {
+  font-weight: bold;
+  color: #e60000; /* Red text */
+}
+
+.tooltip-info-left-margin {
+  margin-left: 10px;
+}
+
+.tooltip-countrySelect-btn {
+  background-color: #e60000; /* Red background */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.tooltip-countrySelect-btn:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+@media (max-width: 768px) {
+  .tooltip {
+    width: 90%;
+    min-width: 300px;
+    bottom: 100px; /* Adjust for smaller screens */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .tooltip-country {
+    font-size: 1.5em;
+  }
+
+  .tooltip-sub-info {
+    font-size: 0.9em;
+  }
+
+  .tooltip-info-left-margin {
+    margin-left: 7px;
+  }
+
+  .tooltip-sub-text {
+    font-size: 0.9em;
+  }
+
+  .tooltip-countrySelect-btn {
+    bottom: 10px;
+  }
+}
