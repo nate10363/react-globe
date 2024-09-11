@@ -41,30 +41,29 @@
 }
 
 .tooltip {
-  background-color: white;
-  border: 2px solid #e60000; /* Red border */
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
+  color: #dfdede;
   font-family: Arial, sans-serif;
   position: absolute;
   z-index: 1;
   width: 50%;
   max-width: 800px;
-  bottom: 100px; /* Position above the button */
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 50px; /* Position above the button */
+  left: 20%;
+  /* transform: translateX(-50%); */
 }
 
 .tooltip-country {
-  color: #e60000; /* Red text */
+  color: #dfdede; /* Red text */
   font-size: 2em;
 }
 
 .tooltip-sub-info {
   font-weight: bold;
-  color: #e60000; /* Red text */
+  color: #dfdede; /* Red text */
+  margin-left: 10px;
 }
 
 .tooltip-info-left-margin {
@@ -72,8 +71,8 @@
 }
 
 .tooltip-countrySelect-btn {
-  background-color: #e60000; /* Red background */
-  color: white; /* White text */
+  background-color: #dfdede; /* Red background */
+  color: black; /* White text */
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -81,22 +80,24 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
+  right: 20%;
+  bottom: 75px;
 }
 
 .tooltip-countrySelect-btn:hover {
   background-color: #cc0000; /* Darker red on hover */
+  color: white;
 }
 
 @media (max-width: 768px) {
   .tooltip {
-    width: 90%;
-    min-width: 300px;
-    bottom: 100px; /* Adjust for smaller screens */
-    left: 50%;
-    transform: translateX(-50%);
+    /* width: 90%; */
+    /* max-width: 300px; */
+    /* min-width: none; */
+    width: 250px;
+    bottom: 20px; /* Adjust for smaller screens */
+    left: 10px;
+    transform: translateX(0%);
   }
 
   .tooltip-country {
@@ -105,6 +106,7 @@
 
   .tooltip-sub-info {
     font-size: 0.9em;
+    margrin-left: 7px;
   }
 
   .tooltip-info-left-margin {
@@ -116,6 +118,9 @@
   }
 
   .tooltip-countrySelect-btn {
-    bottom: 10px;
+    bottom: 40px;
+    right: 10px;
+    max-width: 30vw;
+    font-size: 0.9em;
   }
 }
