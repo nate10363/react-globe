@@ -74,7 +74,7 @@ const World = () => {
   const handleCountryClick = useCallback((country) => {
     setTooltip({
       show: true,
-      country: country.properties.NAME_LONG || "Unknown",
+      country: country.properties.SOVEREIGNT || "Unknown",
       capital: country.properties.CAPITAL || "Unknown",
       continent: country.properties.CONTINENT || "Unknown",
       national_dish: country.properties.NATIONAL_DISH || "Unknown",
@@ -103,7 +103,7 @@ const World = () => {
   }, [tooltip.country]);
 
   if (loading || !globeMaterial || countries.features.length === 0) {
-    return <div>Loading...</div>;
+    return <div id="loading-div">Concocting...</div>;
   }
 
   return (
@@ -129,39 +129,47 @@ const World = () => {
         />
       </div>
       <div className="bottom-space"></div> {/* Flexible space that shrinks */}
-      {tooltip.show && (
-        <div className="tooltip">
-          <div>
-            <strong className="tooltip-country">{tooltip.country}</strong>
-          </div>
-          <div>
-            <strong className="tooltip-sub-info">Capital:</strong>{" "}
-            {tooltip.capital}
-          </div>
-          <div>
-            <strong className="tooltip-sub-info">Continent:</strong>{" "}
-            <span className="tooltip-sub-text-countryDetails">
-              {tooltip.continent}
-            </span>
-          </div>
-          <div>
-            <strong className="tooltip-sub-info">Population:</strong>{" "}
-            {tooltip.population}
-          </div>
-          <div>
-            <strong className="tooltip-sub-info">National Dish:</strong>{" "}
-            {tooltip.national_dish}
-          </div>
+      <div id="tooltip-container">
+        <div>
+          {tooltip.show && (
+            <div className="tooltip">
+              <div>
+                <strong className="tooltip-country">{tooltip.country}</strong>
+              </div>
+              <div id="country-sub-info">
+                <div>
+                  <strong className="country-info-title">Capital:</strong>{" "}
+                  {tooltip.capital}
+                </div>
+                <div>
+                  <strong className="country-info-title">Continent:</strong>{" "}
+                  <span className="tooltip-sub-text-countryDetails">
+                    {tooltip.continent}
+                  </span>
+                </div>
+                <div>
+                  <strong className="country-info-title">Population:</strong>{" "}
+                  {tooltip.population}
+                </div>
+                <div>
+                  <strong className="country-info-title">National Dish:</strong>{" "}
+                  {tooltip.national_dish}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-      {tooltip.show && (
-        <button
-          className="tooltip-countrySelect-btn"
-          onClick={handleSelectClick}
-        >
-          Select {tooltip.country}
-        </button>
-      )}
+        <div>
+          {tooltip.show && (
+            <button
+              className="tooltip-countrySelect-btn"
+              onClick={handleSelectClick}
+            >
+              Explore {tooltip.country}
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
