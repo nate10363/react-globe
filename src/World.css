@@ -1,5 +1,14 @@
 /* src/World.css */
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
+  height: 100%;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -10,6 +19,17 @@
   position: relative;
   min-width: 300px; /* Set minimum width */
   background-color: black;
+}
+
+#loading-div {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
 }
 
 .top-space {
@@ -48,7 +68,7 @@
   font-family: Arial, sans-serif;
   position: absolute;
   z-index: 1;
-  width: 50%;
+  width: 300px;
   max-width: 800px;
   bottom: 50px; /* Position above the button */
   left: 20%;
@@ -56,23 +76,25 @@
 }
 
 .tooltip-country {
-  color: #dfdede; /* Red text */
+  color: #dfdede;
   font-size: 2em;
 }
 
-.tooltip-sub-info {
-  font-weight: bold;
-  color: #dfdede; /* Red text */
+#country-sub-info {
+  display: flex;
+  flex-direction: column;
   margin-left: 10px;
+  color: rgb(214, 205, 205);
 }
 
-.tooltip-info-left-margin {
-  margin-left: 10px;
+.country-info-title {
+  font-weight: bold;
+  color: #dfdede;
 }
 
 .tooltip-countrySelect-btn {
-  background-color: #dfdede; /* Red background */
-  color: black; /* White text */
+  background-color: #dfdede;
+  color: black;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -85,16 +107,13 @@
 }
 
 .tooltip-countrySelect-btn:hover {
-  background-color: #cc0000; /* Darker red on hover */
+  background-color: #cc0000;
   color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) and (min-width: 451px) {
   .tooltip {
-    /* width: 90%; */
-    /* max-width: 300px; */
-    /* min-width: none; */
-    width: 250px;
+    width: 200px;
     bottom: 20px; /* Adjust for smaller screens */
     left: 10px;
     transform: translateX(0%);
@@ -104,23 +123,41 @@
     font-size: 1.5em;
   }
 
-  .tooltip-sub-info {
-    font-size: 0.9em;
-    margrin-left: 7px;
-  }
-
-  .tooltip-info-left-margin {
-    margin-left: 7px;
-  }
-
-  .tooltip-sub-text {
-    font-size: 0.9em;
-  }
-
   .tooltip-countrySelect-btn {
     bottom: 40px;
     right: 10px;
     max-width: 30vw;
     font-size: 0.9em;
+    /* display: inline-block; */
+  }
+}
+
+#tooltip-container {
+  display: flex;
+  flex-direction: row; /* Default layout */
+}
+
+@media (max-width: 450px) {
+  #tooltip-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center;
+  }
+
+  .tooltip {
+    width: 90vw; /* Adjust width to fit within screen */
+    bottom: 60px; /* Move it closer to the bottom */
+    left: 5vw; /* Adjust left to fit within the screen */
+    transform: none;
+  }
+
+  .tooltip-countrySelect-btn {
+    position: static; /* Adjust button position */
+    width: 85vw; /* Allow button to resize based on content */
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  #country-sub-info {
+    width: 65vw;
   }
 }
