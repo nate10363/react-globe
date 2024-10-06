@@ -145,9 +145,13 @@ body {
 
   .tooltip {
     width: 90vw; /* Adjust width to fit within screen */
-    bottom: 60px; /* Move it closer to the bottom */
+    bottom: 45px; /* Move it closer to the bottom */
     left: 5vw; /* Adjust left to fit within the screen */
     transform: none;
+  }
+
+  .tooltip-country {
+    font-size: 1.2em;
   }
 
   .tooltip-countrySelect-btn {
@@ -155,9 +159,15 @@ body {
     width: 85vw; /* Allow button to resize based on content */
     margin-top: 10px;
     margin-bottom: 20px;
+    font-size: 0.9em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #country-sub-info {
     width: 65vw;
+    font-size: 0.8em;
   }
 }
